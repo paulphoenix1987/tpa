@@ -212,6 +212,17 @@
       <input type="text" id="annualLeave" name="annualLeave" />
     </div>
 
+    <div class="form-group">
+      <label for="department">Department:</label>
+      <input type="text" id="department" name="department" placeholder="E.G. Operations, IT, Design"/>
+    </div>
+
+    <div class="form-group">
+      <label for="industry">Industry:</label>
+      <input type="text" id="industry" name="industry" placeholder="E.G Residential Builder, Graphic Design, Civil Engineer, Electrical"/>
+    </div>
+
+
     <div class="form-group" style="grid-column: span 2;">
       <label for="responsibilitiesInput">Key Responsibilities:</label>
       <textarea id="responsibilitiesInput" placeholder="Enter Responsibilites, one per line"></textarea>
@@ -481,11 +492,11 @@
     </div>
 
   <div>
-    <div class="page-break" style="font-family: 'Poppins', sans-serif; padding: 40px; max-width: 800px; margin: 0 auto; font-size: 14px; line-height: 1.3;">
+    <div class="page-break" style="font-family: 'Poppins', sans-serif; padding: 40px; max-width: 800px; margin: 0 auto; font-size: 14px; line-height: 1;">
       <p><strong>Annexure A – Job Description & Duties</strong></p>
       <p><strong style="color: #4F6E4C;">JOB TITLE:</strong> <span id="displayPosition"></span></p>
-      <p><strong style="color: #4F6E4C;">DEPARTMENT:</strong</p>
-      <p><strong style="color: #4F6E4C;">INDUSTRY:</strong> </p>
+      <p><strong style="color: #4F6E4C;">DEPARTMENT:</strong> <span id="displayDepartment"></span></p>
+      <p><strong style="color: #4F6E4C;">INDUSTRY:</strong> <span id="displayIndustry"></span></p>
 
       <hr style="border: none; border-top: 6px solid #4F6E4C; margin: 20px 0;">
       <h4 style="color: #4F6E4C;">Key Responsibilities:</h4>
@@ -576,7 +587,8 @@
       const annualLeave = document.getElementById('annualLeave').value;
       const responsibilitiesInput = document.getElementById('responsibilitiesInput').value;
       const objectivesInput = document.getElementById('objectivesInput').value;
-      
+      const department = document.getElementById('department').value;
+      const industry = document.getElementById('industry').value;
 
 
       document.querySelectorAll('#displayTalentName').forEach(el => el.textContent = talentName);
@@ -592,7 +604,8 @@
       document.querySelectorAll('#displayTimeZone').forEach(e1 =>e1.textContent = timeZone);
       document.querySelectorAll('#displaySickLeave').forEach(e1 =>e1.textContent = sickLeave);
       document.querySelectorAll('#displayAnnualLeave').forEach(e1 =>e1.textContent = annualLeave);
-
+      document.querySelectorAll('#displayDepartment').forEach(e1 =>e1.textContent = department);
+      document.querySelectorAll('#displayIndustry').forEach(e1 =>e1.textContent = industry);
 
       document.querySelectorAll('#displayResponsibilites').forEach(container => {
         container.innerHTML = ''; // Clear existing
