@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Talent Placement Agreement Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.5;
+      background-color: #f9f9f9;
+      margin: 0;
+      padding: 40px 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: #333;
+    }
+
+    form.form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 20px 30px;
+      max-width: 1000px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 6px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+      padding: 10px 12px;
+      border: 2px solid #b6b659;
+      border-radius: 8px;
+      font-size: 16px;
+      outline: none;
+      background-color: #fff;
+    }
+
+    textarea {
+      padding: 10px 12px;
+      border: 2px solid #b6b659;
+      border-radius: 8px;
+      font-size: 16px;
+      resize: vertical; /* optional: allow vertical resizing only */
+      outline: none;
+      background-color: #fff;
+    }
+
+    input:focus,
+    select:focus {
+      border-color: #999900;
+    }
+
+    .buttons {
+      grid-column: span 2;
+      display: flex;
+      justify-content: flex-end;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    #previewSection {
+      display: none;
+      width: 8.27in;        /* A4 width */
+      min-height: 11.69in;  /* A4 height */
+      padding: 1in;         /* Standard margins */
+      margin: 30px auto;
+      background: #fff;
+      border-radius: 8px;
+      box-sizing: border-box;
+      position: relative;
+    }
+    #clauseContent {
+    font-size: 14px;
+    line-height: 1.5;
+    }
+
+    #clauseContent p {
+        margin: 2px 0 2px 20px;
+    }
+
+    #clauseContent .section-title {
+        font-weight: bold;
+        margin-top: 12px;
+        margin-bottom: 4px;
+    }
+    .clause-text {
+    flex: 1;
+    }
+
+
+    @media (max-width: 768px) {
+      form.form-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .buttons {
+        flex-direction: column;
+        align-items: stretch;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Talent Placement Agreement</h1>
+
+  <form id="agreementForm" class="form-grid">
+    <div class="form-group">
+      <label for="talentName">Talent Name:</label>
+      <input type="text" id="talentName" name="talentName" required />
+    </div>
+
+    <div class="form-group">
+      <label for="position">Position:</label>
+      <input type="text" id="position" name="position" required />
+    </div>
+
+    <div class="form-group">
+      <label for="manager">Manager:</label>
+      <input type="text" id="manager" name="manager" required />
+    </div>
+
+    <div class="form-group">
+      <label for="commencementDate">Commencement Date:</label>
+      <input type="date" id="commencementDate" name="commencementDate" required />
+    </div>
+
+    <div class="form-group">
+      <label for="terminationDate">Termination Date:</label>
+      <input type="date" id="terminationDate" name="terminationDate" />
+    </div>
+
+    <div class="form-group">
+      <label for="placementStatus">Placement Status:</label>
+      <select id="placementStatus" name="placementStatus" required>
+        <option value="" disabled selected>Select Placement Status</option>
+        <option value="Full-Time">Full-Time</option>
+        <option value="Part-Time">Part-Time</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="hoursOfWork">Hours of Work:</label>
+      <input type="text" id="hoursOfWork" name="hoursOfWork" placeholder="E.G. 20 Hours Per Week or 40 Hours Per Week"/>
+    </div>
+
+    <div class="form-group">
+      <label for="pay">Pay:</label>
+      <input type="text" id="pay" name="pay" />
+    </div>
+
+    <div class="form-group">
+      <label for="hostCompany">Host Company:</label>
+      <input type="text" id="hostCompany" name="hostCompany" />
+    </div>
+
+    <div class="form-group">
+      <label for="state">State or Territory:</label>
+      <input type="text" id="state" name="state" />
+    </div>
+
+    <div class="form-group">
+      <label for="timeZone">Time Zone:</label>
+      <select id="timeZone" name="timeZone" required>
+        <option value="" disabled selected>Select Time Zone</option>
+        <option value="Asia/Manila">Asia/Manila (GMT+8)</option>
+        <option value="Australia/Sydney">Australia/Sydney (AEDT, GMT+11)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="sickLeave">Sick Leave:</label>
+      <input type="text" id="sickLeave" name="sickLeave" />
+    </div>
+
+    <div class="form-group">
+      <label for="annualLeave">Annual Leave:</label>
+      <input type="text" id="annualLeave" name="annualLeave" />
+    </div>
+
+    <div class="form-group" style="grid-column: span 2;">
+      <label for="responsibilitiesInput">Key Responsibilities:</label>
+      <textarea id="responsibilitiesInput" placeholder="Enter Responsibilites, one per line"></textarea>
+    </div>
+
+    <div class="form-group" style="grid-column: span 2;">
+      <label for="objectivesInput">Key Objectives:</label>
+      <textarea id="objectivesInput" placeholder="Enter Objectives, one per line"></textarea>
+    </div>
+
+    <div class="buttons">
+      <button type="button" id="saveBtn">Save as PDF</button>
+      <button type="button" id="fillFormBtn">Preview Form</button>
+    </div>
+  </form>
+
+  <div id="previewSection">
+    <!-- Cover Page -->
+  <div style="display: flex; justify-content: center; align-items: center; height: 100vh; flex-direction: column; text-align: center;">
+    <h2 style="font-size: 22px; font-weight: 700; margin: 0;">PLACEMENT AGREEMENT</h2>
+    <p style="font-size: 16px; margin: 4px 0 2px 0;">Build Launch Pty Ltd</p>
+    <p style="font-size: 14px; margin: 0;">ABN 58 679 568 211</p>
+  </div>
+
+  <!-- Page break to start next section -->
+  <div class="page-break">
+    <br>
+    <br>
+    <p>Dear <span id="displayTalentName"></span>, </p>
+    <p style="font-weight: bold;">Re: Placement Agreement with Build Launch Pty Ltd</p>
+    <p>Build Launch is pleased to offer your placement with <span id="displayHostCompany"></span></p>
+    <p>To accept this offer, please review the attached Employment Agreement, and complete the following: </p>
+    <p>☐ &nbsp; &nbsp;Sign the Placement Agreement </p>
+    <p>☐ &nbsp; &nbsp;Complete “Annexure B – Personal Details”</p>
+    <p>☐ &nbsp; &nbsp;Return the documents to Build Launch.</p>
+    <br>
+    <p>If you have any questions regarding this offer, please do not hesitate to contact Sofia Tee via email sofia@buildlaunch.com.au </p>
+    <br>
+    <p>We look forward to you working with our team.</p>
+    <br>
+    <p>Yours sincerely,</p>
+    <br>
+    <p><strong>Jasmin Cooper</strong></p>
+    <p><strong>Founder & CEO </strong></p>
+    <p><strong>Build Launch</strong></p>
+  </div>
+  <div id="clauseContent" class="page-break">
+    <div class="section-title">1. General</div>
+    <p>1.1. This is a placement agreement (‘<strong>Agreement</strong>’) between you and Build Launch.</p>
+    <p>1.2. The terms and conditions of your placement are set out in the Subcontractor Agreement, and this Placement Agreement.</p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">2. Host Company</div>
+    <p>2.1. Your Host Company is identified in Item 9 of Schedule 1 (‘<strong><span id="displayHostCompany"></span></strong>’).</p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">3. Location</div>
+    <p>3.1. You will be required to perform your duties primarily in the time zone of the State or Territory identified in Item 11 & 12 of Schedule 1 of Schedule 1, 
+      or elsewhere as reasonably directed by the Host. 
+    </p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">4. Position</div>
+    <p>4.1. &nbsp;&nbsp; The position in which you will be placed is <span id="displayPosition" style="text-decoration: underline;"></span> stated in Item 1 of Schedule 1.</p>
+    <p>4.2. &nbsp;&nbsp;Your duties and responsibilities are outlined in the Position Description in Annexure A.</p>
+    <p>4.3. &nbsp;&nbsp;You will be required to perform any other duties the host may assign to you, having regard to your skills, training, and experience.</p>
+    <p>4.4  &nbsp;&nbsp;You will report to the person named <span id="displayManager" style="text-decoration: underline;"></span> in Item 2 of Schedule 1. </p>
+    <p>4.5  &nbsp;&nbsp;If your position changes for any reason, the other terms of this Agreement will remain in force unless expressly 
+      varied by the parties in writing, to the extent permitted by law. </p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">5. Commencement</div>
+    <p>5.1 &nbsp;&nbsp;Your placement will commence on <span id="displayCommencementDate" style="text-decoration: underline;"></span> stated in Item 3 of Schedule 1.</p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">6. Obligations</div>
+    <p>6.1 &nbsp;&nbsp; You are required to:</p>
+    <ul>
+      <p>(a) Observe & follow Build Launch’s and the Host’s policies and procedures</p>
+      <p>(b) Perform your duties to the best of your ability,</p>
+      <p>(c) Undertake work with due care, skill, and diligence,</p>
+      <p>(d) Faithfully and honestly serve the Host, Build Launch and its clients by acting in their best interests,</p>
+      <p>(e) Using your best endeavours to promote and protect the interests of the Host & Build Launch,</p>
+      <p>(f) Using your best endeavours to promote and protect the interests of the Host & Build Launch,</p>
+    </ul>
+  </div>
+  <div class="page-break" id="clauseContent">
+    <ul>
+      <p>(g) Promptly notify the Host and Build Launch of any damage to company property in your possession, </p>
+      <p>(h) Wear a correct and tidy uniform daily and maintain a high level of presentation which is expected.</p>
+    </ul>
+    <p>&nbsp;</p>
+    <div class="section-title">7. Placement Status</div>
+    <p>7.1 &nbsp;&nbsp;Your placement status is <span id="displayPlacementStatus" style="text-decoration: underline;"></span> stated in Item 5 of Schedule 1.</p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">8. Ordinary Hours</div>
+    <p>8.1 &nbsp;&nbsp;Your ordinary hours of work is <span id="displayHoursOfWork" style="text-decoration: underline;"></span> stated in Item 6 of Schedule 1</p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">9. Performance Review</div>
+    <p>9.1 &nbsp;&nbsp;Your performance will be reviewed weekly</p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">10. Pay</div>
+    <p>10.1 &nbsp;&nbsp;Your pay is <span id="displayPay" style="text-decoration: underline;"></span> set out in Item 8 of Schedule 1.</p>
+    <p>10.2 &nbsp;&nbsp;Your pay will be transferred into your nominated bank account monthly.</p>
+    <p>10.3 &nbsp;&nbsp;Your details are to be recorded in ‘Annexure B’, at the bottom of this agreement. </p>
+    <p>&nbsp;</p>
+    
+    <div class="section-title">11. Leave Entitlements</div>
+    <p>11.1 &nbsp;&nbsp;Your leave entitlements are <span id="displaySickLeave" style="text-decoration: underline;"></span> & <span id="displayAnnualLeave" style="text-decoration: underline;"></span> stated in items 13 & 14 of Schedule 1. </p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">12. Termination</div>
+    <p>12.1 &nbsp;&nbsp;As stated in item 4 of Schedule 1 or </p>
+    <p>12.2 &nbsp;&nbsp;4 weeks notice must be provided from the Talent.</p>
+    <p>12.3 &nbsp;&nbsp;Refer to Build Launch’s ‘Talent Exit Policy’, for further clarifications</p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">13. Reporting Damage</div>
+    <p>13.1 &nbsp;&nbsp;Damage to company property in the Talent’s possession or control must be reported to the Host and Build Launch as soon as reasonably possible.</p>
+    <p>13.2 &nbsp;&nbsp;A failure to report damage to company property as soon as reasonably possible may constitute serious misconduct. </p>
+    <p>&nbsp;</p>
+  </div>
+
+  <div id="clauseContent" class="page-break">
+    <div class="section-title">14. Return of Property</div>
+    <p>14.1 &nbsp;&nbsp;The Talent must immediately return all of the Host’s property in the Talent’s possession upon the termination of placement or at the Host’s request, including:</p>
+    <ul>
+      <p>(a) phones,</p>
+      <p>(b) vehicles,</p>
+      <p>(c) iPads,</p>
+      <p>(d) computers,</p>
+    </ul>
+    <p>&nbsp;</p>
+
+    <div class="section-title">15. Business Expenses</div>
+    <p>15.1 &nbsp;&nbsp;The Host will be reimbursed for all reasonable business expenses, properly incurred by the Talent in the performance of the employee’s duties, 
+      provided that the employee:</p>
+      <ul>
+        <p>(a) obtains approval from the employer prior to incurring these expenses, and</p>
+        <p>(b) provides the employer with the proper supporting documentation, including, for example, invoices, receipts, bank records, and other relevant information. </p>
+      </ul>
+    <p>&nbsp;</p>
+
+    <div class="section-title">16. Confidentiality</div>
+    <p>16.1 &nbsp;&nbsp;Refer to the Subcontractor Agreement </p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">17. Non-Compete</div>
+    <p>17.1 &nbsp;&nbsp;Refer to the Subcontractor Agreement </p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">18. Intellectual Property</div>
+    <p>18.1 &nbsp;&nbsp;Refer to the Subcontractor Agreement </p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">19. Severability</div>
+    <p>19.1 &nbsp;&nbsp;Refer to the Subcontractor Agreement </p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">20. Definitions</div>
+    <p>20.1 &nbsp;&nbsp;In this Placement Agreement, unless the law or context requires otherwise: </p>
+    <ul>
+      <p>(a) “Agreement” means this placement agreement and includes any Schedule or Annexure but does not include any policies, to the extent permitted by law.</p>
+    </ul>
+  </div>
+  <div id="clauseContent" class="page-break">
+    <ul>
+      <p>(b) “Relevant law” means the law applying in State or Territory identified in the Subcontractor Agreement.</p>
+      <p>(c) “Subcontractor Agreement”, means the binding contract between the Talent and Build Launch. </p>
+      <p>(d) “Talent” means the person signing this agreement and the governing Subcontractor Agreement. </p>
+      <p>(e) “Host” means the company the Talent will be placed with to perform services.</p>
+    </ul>
+    <p>&nbsp;</p>
+
+    <div class="section-title">21. Entire Agreement</div>
+    <p>21.1 &nbsp;&nbsp;This Agreement:</p>
+    <ul>
+      <p>(a) is the whole placement agreement between the parties (Host, Talent & Build Launch), and </p>
+      <p>(b) Is governed by the signed Subcontractor Agreement and Build Launch’s policies between the Talent & Build Launch.</p>
+    </ul>
+    <p>&nbsp;</p>
+
+    <div style="margin-top: 30px;">
+      <strong>Signed by Talent</strong>
+      <div style="margin-top: 40px;">
+        <div style="border-bottom: 1px solid #000; width: 300px; margin-bottom: 5px;"></div>
+        <div style="font-size: 12px; color: #555;">Name</div>
+      </div>
+      <div style="margin-top: 20px;">
+        <div style="border-bottom: 1px solid #000; width: 300px; margin-bottom: 5px;"></div>
+        <div style="font-size: 12px; color: #555;">Signature</div>
+      </div>
+      <div style="margin-top: 20px;">
+        <div style="border-bottom: 1px solid #000; width: 300px; margin-bottom: 5px;"></div>
+        <div style="font-size: 12px; color: #555;">Date</div>
+      </div>
+    </div>
+  </div>
+    <div class="page-break" id="clauseContent">
+      <h3 style="text-align: center;">SCHEDULE 1</h3>
+      <table style="width: 100%; border-collapse: collapse; font-family: 'Poppins', sans-serif;">
+        <tr>
+          <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 1</td>
+          <td style="border: 1px solid #000; padding: 8px;">Position</td>
+          <td style="border: 1px solid #000; padding: 8px;"><span id="displayPosition"></span></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 2</td>
+          <td style="border: 1px solid #000; padding: 8px;">Manager</td>
+          <td style="border: 1px solid #000; padding: 8px"><span id="displayManager"></span></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 3</td>
+          <td style="border: 1px solid #000; padding: 8px;">Commencement Date</td>
+          <td style="border: 1px solid #000; padding: 8px;"><span id="displayCommencementDate"></span></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 4</td>
+          <td style="border: 1px solid #000; padding: 8px;">Termination Date</td>
+          <td style="border: 1px solid #000; padding: 8px"><span id="displayTerminationDate"></span></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 5</td>
+          <td style="border: 1px solid #000; padding: 8px;">Placement Status</td>
+          <td style="border: 1px solid #000; padding: 8px;"><span id="displayPlacementStatus"></span></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 6</td>
+          <td style="border: 1px solid #000; padding: 8px;">Hours of Work</td>
+          <td style="border: 1px solid #000; padding: 8px"><span id="displayHoursOfWork"></span></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 8</td>
+          <td style="border: 1px solid #000; padding: 8px;">Pay</td>
+          <td style="border: 1px solid #000; padding: 8px"><span id="displayPay"></span></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 9</td>
+          <td style="border: 1px solid #000; padding: 8px;">Host Company</td>
+          <td style="border: 1px solid #000; padding: 8px;"><span id="displayHostCompany"></span></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 11</td>
+          <td style="border: 1px solid #000; padding: 8px;">State or Territory</td>
+          <td style="border: 1px solid #000; padding: 8px;"><span id="displayState"></span></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 12</td>
+          <td style="border: 1px solid #000; padding: 8px;">Time Zone</td>
+          <td style="border: 1px solid #000; padding: 8px;"><span id="displayTimeZone"></span></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 13</td>
+          <td style="border: 1px solid #000; padding: 8px;">Sick Leave</td>
+          <td style="border: 1px solid #000; padding: 8px;"><span id="displaySickLeave"></span></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 14</td>
+          <td style="border: 1px solid #000; padding: 8px;">Annual Leave</td>
+          <td style="border: 1px solid #000; padding: 8px;"><span id="displayAnnualLeave"></span></td>
+        </tr>
+      </table>
+
+    </div>
+
+  <div>
+    <div class="page-break" style="font-family: 'Poppins', sans-serif; padding: 40px; max-width: 800px; margin: 0 auto; font-size: 14px; line-height: 1.6;">
+      <p><strong>Annexure A – Job Description & Duties</strong></p>
+      <p><strong style="color: #4F6E4C;">JOB TITLE:</strong> <span id="displayPosition"></span></p>
+      <p><strong style="color: #4F6E4C;">DEPARTMENT:</strong</p>
+      <p><strong style="color: #4F6E4C;">INDUSTRY:</strong> </p>
+
+      <hr style="border: none; border-top: 6px solid #4F6E4C; margin: 20px 0;">
+      <h4 style="color: #4F6E4C;">Key Responsibilities:</h4>
+      <p><span id="displayResponsibilites" style="font-size: 12px;"></span></p>
+      <p>&nbsp;</p>
+
+      <hr style="border: none; border-top: 2px solid #4F6E4C; margin: 20px 0;">
+      <h4 style="color: #4F6E4C;">Key Objectives:</h4>
+      <p><span id="displayObjectives" style="font-size: 12px;"></span></p>
+
+    </div>
+
+    <div style="font-family: 'Poppins', sans-serif; padding: 40px; max-width: 800px; margin: 0 auto; font-size: 14px; color: #000;">
+      <h3 style="text-align: center;">Annexure B – Details</h3>
+    
+      <h4 style="margin-top: 40px; font-weight: 600;">PERSONAL DETAILS</h4>
+    
+      <!-- Bank Details Table -->
+      <table style="width: 100%; border-collapse: collapse; margin-bottom: 40px;">
+        <tr>
+          <td style="width: 50%; border: 1px solid #000; padding: 12px; color: #000;">Account Name</td>
+          <td style="width: 50%; border: 1px solid #000;"></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; padding: 12px; color: #000;">BSB</td>
+          <td style="border: 1px solid #000;"></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; padding: 12px; color: #000;">Account Number</td>
+          <td style="border: 1px solid #000;"></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; padding: 12px; color: #000;">Bank Name</td>
+          <td style="border: 1px solid #000;"></td>
+        </tr>
+      </table>
+    
+      <!-- Personal Info Table -->
+      <table style="width: 100%; border-collapse: collapse;">
+        <tr>
+          <td style="width: 50%; border: 1px solid #000; padding: 12px; color: #000;">Full Name</td>
+          <td style="width: 50%; border: 1px solid #000;"></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; padding: 12px; color: #000;">Address</td>
+          <td style="border: 1px solid #000;"></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; padding: 12px; color: #000;">DOB</td>
+          <td style="border: 1px solid #000;"></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; padding: 12px; color: #000;">Mobile Number</td>
+          <td style="border: 1px solid #000;"></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; padding: 12px; color: #000;">Email address</td>
+          <td style="border: 1px solid #000;"></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; padding: 12px; color: #000;">Emergency Contact/Number</td>
+          <td style="border: 1px solid #000;"></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  
+
+
+
+  <!-- SCRIPTS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+  <script>
+    const headerImageUrl = 'https://i.imgur.com/0EyabYJ.png';
+    document.getElementById('fillFormBtn').addEventListener('click', function () {
+      const talentName = document.getElementById('talentName').value;
+      const hostCompany = document.getElementById('hostCompany').value;
+      const position = document.getElementById('position').value;
+      const manager = document.getElementById('manager').value;
+      const commencementDate = document.getElementById('commencementDate').value;
+      const terminationDate = document.getElementById('terminationDate').value;
+      const placementStatus = document.getElementById('placementStatus').value;
+      const hoursOfWork = document.getElementById('hoursOfWork').value;
+      const pay = document.getElementById('pay').value;
+      const state = document.getElementById('state').value;
+      const timeZone = document.getElementById('timeZone').value;
+      const sickLeave = document.getElementById('sickLeave').value;
+      const annualLeave = document.getElementById('annualLeave').value;
+      const responsibilitiesInput = document.getElementById('responsibilitiesInput').value;
+      const objectivesInput = document.getElementById('objectivesInput').value;
+      
+
+
+      document.querySelectorAll('#displayTalentName').forEach(el => el.textContent = talentName);
+      document.querySelectorAll('#displayHostCompany').forEach(el => el.textContent = hostCompany);
+      document.querySelectorAll('#displayPosition').forEach(e1 =>e1.textContent = position);
+      document.querySelectorAll('#displayManager').forEach(e1 =>e1.textContent = manager);
+      document.querySelectorAll('#displayCommencementDate').forEach(e1 =>e1.textContent = commencementDate);
+      document.querySelectorAll('#displayTerminationDate').forEach(e1 =>e1.textContent = terminationDate);
+      document.querySelectorAll('#displayPlacementStatus').forEach(e1 =>e1.textContent = placementStatus);
+      document.querySelectorAll('#displayHoursOfWork').forEach(e1 =>e1.textContent = hoursOfWork);
+      document.querySelectorAll('#displayPay').forEach(e1 =>e1.textContent = pay);
+      document.querySelectorAll('#displayState').forEach(e1 =>e1.textContent = state);
+      document.querySelectorAll('#displayTimeZone').forEach(e1 =>e1.textContent = timeZone);
+      document.querySelectorAll('#displaySickLeave').forEach(e1 =>e1.textContent = sickLeave);
+      document.querySelectorAll('#displayAnnualLeave').forEach(e1 =>e1.textContent = annualLeave);
+
+
+      document.querySelectorAll('#displayResponsibilites').forEach(container => {
+        container.innerHTML = ''; // Clear existing
+        const lines = responsibilitiesInput
+          .split(/(?:\n+|\.\s+|\.\n|;\s+)/) // split by line breaks or sentence endings
+          .map(line => line.trim())
+          .filter(line => line.length > 0);
+
+        lines.forEach(text => {
+          const li = document.createElement('li');
+          li.textContent = text;
+          container.appendChild(li);
+        });
+      });
+
+      document.querySelectorAll('#displayObjectives').forEach(container => {
+      container.innerHTML = ''; // Clear existing
+
+      const lines = objectivesInput
+        .split(/(?:\n+|\.\s+|\.\n|;\s+)/)
+        .map(line => line.trim())
+        .filter(line => line.length > 0);
+
+      const ol = document.createElement('ol');
+      ol.style.fontSize = '12px'; // optional styling
+
+      lines.forEach(text => {
+        const li = document.createElement('li');
+        li.textContent = text;
+        ol.appendChild(li);
+      });
+
+      container.appendChild(ol);
+    });
+
+      document.getElementById('previewSection').style.display = 'block';
+    });
+  
+    document.getElementById('saveBtn').addEventListener('click', function () {
+      const element = document.getElementById('previewSection');
+      const talentName = document.getElementById('talentName').value.trim() || 'Talent';
+  
+      const opt = {
+        margin: [0.9, 0, 0, 0], // top, left, bottom, right
+        filename: `Client_Services_Agreement_${talentName.replace(/[^a-z0-9]/gi, '_')}.pdf`,
+        html2canvas: { scale: 2, scrollY: 0, useCORS: true },
+        jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' },
+        pagebreak: { mode: ['avoid-all', 'css', 'legacy'], before: '.page-break' }
+      };
+        // Load image first before generating PDF
+      const img = new Image();
+      img.crossOrigin = 'anonymous';
+      img.src = headerImageUrl;
+
+      img.onload = function () {
+      html2pdf().set(opt).from(element).toPdf().get('pdf').then(function (pdf) {
+        const totalPages = pdf.internal.getNumberOfPages();
+        const pageWidth = pdf.internal.pageSize.getWidth();
+        const pageHeight = pdf.internal.pageSize.getHeight();
+
+  
+        for (let i = 1; i <= totalPages; i++) {
+          pdf.setPage(i);
+          pdf.addImage(img, 'PNG', 0.3, 0.1, pageWidth - 0.5, 0.7); // x, y, width, height in inches
+          pdf.setFontSize(10);
+          pdf.setTextColor(100);
+          // Align right: 60px (0.6in) from right edge
+          pdf.text(`Page | ${i}`, pageWidth - 0.6, pageHeight - 0.3, { align: 'right' });
+        }
+  
+        pdf.save(`Client_Services_Agreement_${talentName.replace(/[^a-z0-9]/gi, '_')}.pdf`); // ✅ This is now correctly placed
+      });
+    };
+  });
+  </script>
+  
+</body>
+</html>
