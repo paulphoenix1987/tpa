@@ -91,6 +91,7 @@
     button:hover {
       background-color: #45a049;
     }
+    
 
     #previewSection {
       display: none;
@@ -210,6 +211,11 @@
     <div class="form-group">
       <label for="annualLeave">Annual Leave:</label>
       <input type="text" id="annualLeave" name="annualLeave" />
+    </div>
+
+    <div class="form-group">
+      <label for="secSystem">Security System:</label>
+      <input type="text" id="secSystem" name="secSystem" />
     </div>
 
     <div class="form-group">
@@ -403,8 +409,13 @@
     </ul>
     <p>&nbsp;</p>
 
-    <div class="section-title">21. Entire Agreement</div>
-    <p>21.1 &nbsp;&nbsp;This Agreement:</p>
+    <div class="section-title">21. Security </div>
+    <p>21.1 &nbsp;&nbsp; Online security must be used at all times whilst working for Build Launch. Refer to Subcontractor Agreement.</p>
+    <p>21.2 &nbsp;&nbsp; The Talent agrees to use the Security System detailed in Item 15 of Schedule 1, provided by and controlled by the Host. </p>
+    <p>&nbsp;</p>
+
+    <div class="section-title">22. Entire Agreement</div>
+    <p>22.1 &nbsp;&nbsp;This Agreement:</p>
     <ul>
       <p>(a) is the whole placement agreement between the parties (Host, Talent & Build Launch), and </p>
       <p>(b) Is governed by the signed Subcontractor Agreement and Build Launch’s policies between the Talent & Build Launch.</p>
@@ -489,6 +500,11 @@
           <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 14</td>
           <td style="border: 1px solid #000; padding: 8px;">Annual Leave</td>
           <td style="border: 1px solid #000; padding: 8px;"><span id="displayAnnualLeave"></span></td>
+        </tr>
+        <tr>
+          <td style="border: 1px solid #000; font-weight: bold; padding: 8px;">Item 15</td>
+          <td style="border: 1px solid #000; padding: 8px;">Security System</td>
+          <td style="border: 1px solid #000; padding: 8px;"><span id="displaySecSystem"></span></td>
         </tr>
       </table>
 
@@ -592,6 +608,7 @@
       const objectivesInput = document.getElementById('objectivesInput').value;
       const department = document.getElementById('department').value;
       const industry = document.getElementById('industry').value;
+      const secSystem = document.getElementById('secSystem').value;
 
 
       document.querySelectorAll('#displayTalentName').forEach(el => el.textContent = talentName);
@@ -609,6 +626,7 @@
       document.querySelectorAll('#displayAnnualLeave').forEach(e1 =>e1.textContent = annualLeave);
       document.querySelectorAll('#displayDepartment').forEach(e1 =>e1.textContent = department);
       document.querySelectorAll('#displayIndustry').forEach(e1 =>e1.textContent = industry);
+      document.querySelectorAll('#displaySecSystem').forEach(e1 =>e1.textContent = secSystem);
 
       document.querySelectorAll('#displayResponsibilites').forEach(container => {
         container.innerHTML = ''; // Clear existing
@@ -679,7 +697,7 @@
           pdf.text(`Page | ${i}`, pageWidth - 0.6, pageHeight - 0.3, { align: 'right' });
         }
   
-        pdf.save(`Client_Services_Agreement_${talentName.replace(/[^a-z0-9]/gi, '_')}.pdf`); // ✅ This is now correctly placed
+        pdf.save(`Talent_Placement_Agreement_${talentName.replace(/[^a-z0-9]/gi, '_')}.pdf`); // ✅ This is now correctly placed
       });
     };
   });
